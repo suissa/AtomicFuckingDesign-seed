@@ -6,7 +6,7 @@
 
 > Brinks! Mas indico o livro fortemente porque ele é do **CARALHO**!
 
-Arquitetura modular e atômica criada no [Be MEAN]() paras facilitar a vida dos programadores **vagabundos** como eu.
+Arquitetura modular e atômica criada no [Be MEAN]() para facilitar a vida dos programadores **vagabundos** como eu.
 
 > Por que ficar copiando e colando código toda vez que irá iniciar um projeto?
 
