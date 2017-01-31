@@ -2,7 +2,7 @@
 
 > Antes de tudo, indico esse livro para que vocë possa entender essa nomenclatura.
 
-![https://i1.zst.com.br/images/uma-breve-historia-do-tempo-capa-comum-9788580576467-photo44272988-12-29-d.jpg]()
+![uma breve história do tempo](https://i1.zst.com.br/images/uma-breve-historia-do-tempo-capa-comum-9788580576467-photo44272988-12-29-d.jpg)
 
 > Brinks! Mas indico o livro fortemente porque ele é do **CARALHO**!
 
@@ -51,3 +51,5 @@ Caso você ainda não esteja habituado com esses termos de Física Quântica (qu
 
 
 ## Arquitetura
+
+![](http://i.imgur.com/gMHUz51.png)
