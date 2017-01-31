@@ -1,0 +1,60 @@
+<md-card>
+    <md-toolbar class="md-primary md-hue-2">
+        <div class="md-toolbar-tools">
+            <span flex></span>
+            <h3>Form de {{ vm.MODULE_NOME }} - {{ vm.title }}</h3>
+            <span flex></span>
+        </div>
+    </md-toolbar>
+
+    <form layout-padding>
+      <div layout="row">
+        <md-button aria-label="Salvar" class="md-raised md-primary" ng-click="vm.salvar()">
+          <md-icon class="fa fa-save fa-2x" aria-hidden="true"></md-icon>
+        </md-button>
+        <md-button aria-label="Limpar" class="md-raised md-primary" ng-click="vm.limpar()">
+          <md-icon class="fa fa-close fa-2x" aria-hidden="true"></md-icon>
+        </md-button>
+        <md-button aria-label="Voltar" class="md-raised md-primary" ng-click="vm.voltar()">
+          <md-icon class="fa fa-arrow-left fa-2x" aria-hidden="true"></md-icon>
+        </md-button>
+      </div>
+
+      <div layout="row" ng-repeat="field in vm.SCHEMA">
+
+        <md-input-container ng-show="field.type === 'text'">
+          <label>{{ field.name }}</label>
+          <input ng-model="vm.form[field.name]"
+                  aria-label="{{ field.name }}"
+                  id="{{ field.name }}"
+                  type="{{ field.type }}"
+                  class="validate"
+                  ng-show="{{field.type == 'text'}}">
+        </md-input-container>
+        <md-input-container ng-show="field.type === 'date'">
+          <label>{{ field.name }}</label>
+          <input ng-model="vm.form[field.name]" id="{{ field.name }}" type="{{ field.type }}" class="validate" ng-show="{{field.type == 'date'}}">
+        </md-input-container>
+
+        <md-input-container ng-show="field.type === 'checkbox'">
+          <md-checkbox  ng-model="vm.form.active"
+                        aria-label="{{ field.name }}"
+                        ng-true-value="true"
+                        ng-false-value="false">{{ field.name }}</md-checkbox>
+        </md-input-container>
+      </div>
+
+
+      <div layout="row">
+        <md-button aria-label="Salvar" class="md-raised md-primary" ng-click="vm.salvar()">
+          <md-icon class="fa fa-save fa-2x" aria-hidden="true"></md-icon>
+        </md-button>
+        <md-button aria-label="Limpar" class="md-raised md-primary" ng-click="vm.limpar()">
+          <md-icon class="fa fa-close fa-2x" aria-hidden="true"></md-icon>
+        </md-button>
+        <md-button aria-label="Voltar" class="md-raised md-primary" ng-click="vm.voltar()">
+          <md-icon class="fa fa-arrow-left fa-2x" aria-hidden="true"></md-icon>
+        </md-button>
+      </div>
+    </form>
+</md-card>

@@ -1,0 +1,48 @@
+{
+  "name": "AtomicDesign-Factories",
+  "version": "1.0.0",
+  "description": "Fábricas de geração das partes do Atomic Design",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/suissa/AtomicDesign-Factories.git"
+  },
+  "keywords": [
+    "suissa",
+    "webschool",
+    "atomic",
+    "design",
+    "atomicdesign",
+    "module",
+    "factory",
+    "factories",
+    "quark",
+    "hadron",
+    "atom",
+    "molecule",
+    "organism"
+  ],
+  "author": "Suissa",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/suissa/AtomicDesign-Factories/issues"
+  },
+  "homepage": "https://github.com/suissa/AtomicDesign-Factories#readme",
+  "dependencies": {
+    "bluebird": "^3.4.6",
+    "body-parser": "^1.15.1",
+    "compression": "^1.6.2",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.7.1",
+    "express": "^4.13.4",
+    "file-system": "^2.2.1",
+    "mongoose": "^4.7.0",
+    "morgan": "^1.7.0",
+    "path": "^0.12.7",
+    "serve-favicon": "^2.3.0"
+  }
+}

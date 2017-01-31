@@ -1,0 +1,68 @@
+<style>
+  .myGrid {
+      width: 1000px;
+      height: 500px;
+    }
+</style>
+
+<div  ng-show="vm.list.length">
+  <div>
+    <div  ui-grid="{ data: vm.list,
+    columnDefs: [
+    ],
+    excludeProperties: '_id __v created_at $$hashKey' }"
+          class="myGrid"></div>
+  </div>
+<!-- ui-grid="vm.gridOptions" -->
+
+  <table ng-show="vm.list.length">
+    <thead>
+      <tr>
+        <th data-field="codigo" ng-repeat="field in vm.SCHEMA">{{ field.name }}</th>
+        <th data-field="codigo">VISUALIZAR</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="entity in vm.list">
+        <td ng-repeat="field in vm.SCHEMA">
+          {{ entity[field.name]  }}
+        </td>
+        <td>
+          <a href="#!/{{ vm.PATH }}/{{ entity._id }}">
+            ver
+          </a>
+          <a href="#!/{{ vm.PATH }}/{{ entity._id }}/edit">
+            editar
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<div  ng-show="!vm.list.length">
+  <table >
+    <thead>
+      <tr>
+        <th>Campo</th>
+        <th>Valor</th>
+        <th>Editar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="(k,v) in vm.entity">
+        <td style="font-weight: bold">{{k}}</td>
+        <td>{{v}}</td>
+        <td>
+          <a href="#!/{{ vm.PATH }}/{{ vm.entity._id }}/edit">
+            editar
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+

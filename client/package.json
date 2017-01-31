@@ -1,0 +1,25 @@
+{
+  "name": "client",
+  "version": "0.0.2",
+  "description": "Client App for boilerplate-ng",
+  "main": "app.js",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "angular": "^1.6.1",
+    "angular-animate": "^1.6.1",
+    "angular-aria": "^1.6.1",
+    "angular-chart.js": "^1.1.1",
+    "angular-material": "^1.1.1",
+    "angular-messages": "^1.6.1",
+    "angular-sanitize": "^1.6.1",
+    "angular-touch": "^1.6.1",
+    "angular-ui-grid": "^4.0.2",
+    "angular-ui-router": "^0.3.2",
+    "font-awesome": "^4.7.0",
+    "pdfmake": "^0.1.24",
+    "toastr": "^2.1.2"
+  },
+  "scripts": {
+    "start": "live-server"
+  }
+}

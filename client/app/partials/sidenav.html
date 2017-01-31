@@ -1,0 +1,35 @@
+<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" ng-cloak>
+    <md-toolbar layout="row">
+        <div class="md-toolbar-tools" ui-sref="home" ng-click="vm.closeSideNavPanel()">
+            <h2>
+                <span>{{vm.appName}}</span>
+            </h2>
+            <span flex></span>
+            <md-button class="md-icon-button" aria-label="Close Side Panel">
+                <md-icon class="fa fa-close fa-2x"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-content>
+        <md-list ng-repeat="item in vm.menus">
+            <md-toolbar style="background-color:#465cce">
+                <p style="margin-left:5px">{{item.label}}</p>
+            </md-toolbar>
+
+            <md-list-item ng-repeat="subitem in item.itens" ng-click="vm.closeSideNavPanel()" ui-sref="{{subitem.path}}">
+                <md-list>
+                    <div style="font-weight:bold" >
+                        {{subitem.label}}
+                    </div>
+                    <md-list-item ng-if="(vm.menuMostrar == subitem.label && vm.menuEsconder != subitem.label)"
+                                  ng-repeat="subsubitem in subitem.itens"
+                                  ng-click="vm.closeSideNavPanel()"
+                                  ui-sref="{{subsubitem.path}}">
+                        <div style="padding-right:20px" >
+                            {{subsubitem.label}}
+                        </div>
+                    </md-list-item>
+                    <md-list></md-list-item>
+                </md-list>
+            </md-content>
+        </md-sidenav>
