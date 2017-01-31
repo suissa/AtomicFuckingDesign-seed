@@ -63,3 +63,31 @@ A *Molecule* é a definição da estrutura dos campos (*Atoms*) os quais são va
 
 
 ![](http://i.imgur.com/zZQpbBN.png)
+
+> **Por acaso você é louco???**
+
+
+> Sim, mas isso não vem ao caso. Posso explicar-lhe o porquê dessa nomenclatura, acompanhe-me na minha viagem.
+
+**Tudo começou com o átomo...**
+
+Inicialmente questionei-me: 
+
+> Sempre uso o campo `name` em vários *Schemas/Molecules* **por que não modularizar essa PORRA???**
+
+Vamos analisar como é um *Schema* no Mongoose:
+
+```js
+const schema = {
+      name: {
+        type: String,
+        validate: {
+          validator: function(v) {
+            return /[a-zA-Z]/.test(v);
+          },
+          message: '{VALUE} its not only letters!'
+        },
+        required: [true, 'name is required']
+      }
+    });
+```
