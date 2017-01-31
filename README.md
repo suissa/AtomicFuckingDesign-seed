@@ -75,19 +75,71 @@ Inicialmente questionei-me:
 
 > Sempre uso o campo `name` em vários *Schemas/Molecules* **por que não modularizar essa PORRA???**
 
-Vamos analisar como é um *Schema* no Mongoose:
+Vamos analisar como é o campo `name` no *Schema* do Mongoose:
 
 ```js
 const schema = {
-      name: {
-        type: String,
-        validate: {
-          validator: function(v) {
-            return /[a-zA-Z]/.test(v);
-          },
-          message: '{VALUE} its not only letters!'
-        },
-        required: [true, 'name is required']
-      }
-    });
+  name: {
+    type: String,
+    required: [true, 'name is required']
+    validate: {
+      validator: (v) => /[a-zA-Z]/.test(v)
+      },
+      message: '{VALUE} its not only letters!'
+    }
+  }
+}
 ```
+
+Na minha lógica separei em duas partes:
+
+```js
+const ATOM_NAME = 'name'
+
+const PROPS = { 
+  type: String
+  required: [true, 'name is required']
+}
+
+const VALIDATE = {
+  validate: {
+    validator: (v) => /[a-zA-Z]/.test(v)
+    },
+    message: '{VALUE} its not only letters!'
+  },
+}
+
+const schema = {
+  [ATOM_NAME]: {
+    PROPS,
+    VALIDATE
+  }
+}
+```
+
+Eu nomeei de Átomo a configuração de `PROPS` e de Hádron o objeto de `VALIDATE`.
+
+> **Suissa por que raios você chamou de Hádron?**
+
+
+> Hádron, em Física de Partículas, é uma partícula composta, formada por um estado ligado de quarks.
+
+*fonte: https://pt.wikipedia.org/wiki/H%C3%A1dron*
+
+
+Então vamos analisar nosso objeto:
+
+```js
+const VALIDATE = {
+  validate: {
+    validator: (v) => /[a-zA-Z]/.test(v)
+    },
+    message: '{VALUE} its not only letters!'
+  },
+}
+```
+
+Mesmo o Hádron sendo formado por 3 Quarks, nesse caso teremos apenas 2:
+
+- validator
+- message
