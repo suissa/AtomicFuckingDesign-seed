@@ -143,3 +143,4 @@ Mesmo o Hádron sendo formado por 3 Quarks, nesse caso teremos apenas 2:
 
 - validator
 - message
+
