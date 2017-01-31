@@ -52,4 +52,14 @@ Caso você ainda não esteja habituado com esses termos de Física Quântica (qu
 
 ## Arquitetura
 
-![](http://i.imgur.com/gMHUz51.png)
+Para facilitar a visualização dessa arquitetura montei esse simples Diagrama de Venn, onde podemos ver que o *Organism* é composto de:
+
+- *Molecule*
+- *Organelle*
+
+A *Organelle* é a função que será executada quando houver uma requisição em uma rota, sua resposta será devolvida pelo *Ribosome*.
+
+A *Molecule* é a definição da estrutura dos campos (*Atoms*) os quais são validados pelos *Quarks*.
+
+
+![](http://i.imgur.com/zZQpbBN.png)
