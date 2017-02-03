@@ -1,4 +1,5 @@
 const db = require('./_config/db')
+const path = require('path')
 const express = require('express')
 const app = express()
 const port = process.env.PORT || 8000
@@ -9,9 +10,15 @@ const cors = require('cors')
 const compress = require('compression')
 const favicon = require('serve-favicon')
 // console.log('__dirname', __dirname)
+
+const http = require('http').Server(app);
+const io = require('socket.io')(http, {});
+
 const MODULES_PATH = __dirname+'/modules'
 const modules = require('./_config/module/get.modules.js')(MODULES_PATH)
 const api = {}
+
+app.use(express.static(path.join(__dirname, '/public')));
 
 app.use(morgan('dev'))
 app.use(cookieParser())
@@ -21,6 +28,10 @@ app.use(cors())
 app.use(compress()) // Compress response data with gzip
   // app.use(favicon(__dirname + '/favicon.ico'))
 
+app.use((req, res, next) => {
+  res.io = io
+  next()
+})
 
 /* Cria as rotas dinamicamente a partir dos módulos */
 const getRoutes = require('./_config/routes/get.routes')
