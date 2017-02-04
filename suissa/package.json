@@ -1,0 +1,11 @@
+{
+	"name": "suissa",
+	"version": "1.0.0",
+	"description": "socket + api",
+	"main": "app.js",
+	"scripts": {
+		"start": "live-server"
+	},
+	"author": "Higor Diego",
+	"license": "ISC"
+}
