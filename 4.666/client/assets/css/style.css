@@ -1,0 +1,61 @@
+.md-hue-3{
+  font-weight: bold;
+}
+
+@media screen and (min-width: 768px){
+  .menuBar {
+    display:block;
+    padding: 20px;
+  }
+  .menuButton{
+    display:none;
+  }
+}
+
+@media screen and (max-width: 736px) {
+  .menuBar {
+    display:none;
+  }
+  .menuButton{
+    display:block;
+  }
+}
+/*
+@media only screen
+  and (min-width: 736px)
+  and (max-width: 1200px){
+  .tablet {
+    display:block;
+  }
+  .desktop {
+    display:none;
+  }
+  .mobile {
+    display:none;
+  }
+}
+
+@media only screen
+  and (min-width: 1200px) {
+  .desktop {
+    display:block;
+  }
+  .tablet {
+    display:none;
+  }
+  .mobile {
+    display:none;
+  }
+}*/
+
+.logs {
+  height: 300px;
+  overflow: auto;
+}
+
+.tooltipdemoBasicUsage md-toolbar .md-toolbar-tools .md-button,
+.tooltipdemoBasicUsage md-toolbar .md-toolbar-tools .md-button:hover {
+  box-shadow: none;
+  border: none;
+  transform: none;
+  -webkit-transform: none; }

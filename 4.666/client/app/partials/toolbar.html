@@ -1,0 +1,57 @@
+<header>
+    <md-toolbar class="mobile" ng-cloak>
+        <div class="md-toolbar-tools" ng-show="vm.showMobileMainHeader">
+            <md-button class="md-no-ink" style="font-weight:bold" ui-sref="home" ng-click="">
+                {{vm.appName}}
+            </md-button>
+            <span flex></span>
+            <!-- menu -->
+            <div>
+                <md-menu-bar class='menuBar'>
+                    <md-menu ng-repeat="item in vm.menus">
+                        <md-button ng-click="$mdOpenMenu()" class="md-no-ink" style="font-weight:bold">
+                            {{item.label}}
+                        </md-button>
+                        <md-menu-content>
+                            <md-menu-item ng-repeat="subitem in item.itens">
+                                <md-button ui-sref="{{subitem.path}}" ng-if="subitem.itens.length==0">{{subitem.label}}
+                                </md-button >
+                                <md-menu ng-if="subitem.itens.length!=0">
+                                    <md-button ng-click="$mdOpenMenu()" >
+                                        {{subitem.label}}
+                                    </md-button>
+                                    <md-menu-content>
+                                        <md-menu-item ng-repeat="subsubitem in subitem.itens">
+                                            <md-button ng-click="vm.clique(subsubitem.path)"
+                                            ui-sref="{{subsubitem.path}}"
+                                            >{{subsubitem.label}}</md-button>
+                                        </md-menu-item>
+                                    </md-menu-content>
+                                </md-menu>
+                            </md-menu-item>
+                        </md-menu-content>
+                    </md-menu>
+                </md-menu-bar>
+            </div>
+            <span flex></span>
+            <md-button class="md-icon-button" aria-label="Search" ng-click="vm.showMobileMainHeader = false">
+                <md-icon class="fa fa-search fa-2x"></md-icon>
+            </md-button>
+            <md-button class="md-icon-button menuButton" aria-label="Side Panel" ng-click="vm.openSideNavPanel()">
+                <md-icon class="fa fa-bars fa-2x"></md-icon>
+            </md-button>
+        </div>
+        <div class="md-toolbar-tools" ng-show="!vm.showMobileMainHeader">
+            <md-button class="md-icon-button" aria-label="Back" ng-click="vm.showMobileMainHeader = true">
+                <md-icon class="fa fa-arrow-left fa-2x"></md-icon>
+            </md-button>
+            <md-input-container md-no-float class="md-accent" style="padding-bottom:0px;">
+                <input ng-model="searchInput" placeholder="Search here" style="color:wheat;">
+            </md-input-container>
+            <span flex></span>
+            <md-button class="md-icon-button" aria-label="Search">
+                <md-icon class="fa fa-send fa-2x"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+</header>

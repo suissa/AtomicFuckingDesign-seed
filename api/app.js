@@ -12,7 +12,8 @@ const favicon = require('serve-favicon')
 // console.log('__dirname', __dirname)
 
 const http = require('http').Server(app);
-const io = require('socket.io')(http, {});
+
+const io = require('socket.io').listen(5430);
 
 const MODULES_PATH = __dirname+'/modules'
 const modules = require('./_config/module/get.modules.js')(MODULES_PATH)
@@ -28,10 +29,6 @@ app.use(cors())
 app.use(compress()) // Compress response data with gzip
   // app.use(favicon(__dirname + '/favicon.ico'))
 
-app.use((req, res, next) => {
-  res.io = io
-  next()
-})
 
 
 io.sockets.on('connection', function (socket) {
@@ -42,13 +39,18 @@ io.sockets.on('connection', function (socket) {
   // });
 });
 
+app.use((req, res, next) => {
+  res.io = io
+  next()
+})
+
 /* Cria as rotas dinamicamente a partir dos módulos */
 const getRoutes = require('./_config/routes/get.routes')
 const createRoutes = require('./_config/routes/create.routes')(app)
 
-modules
-.map(getRoutes)
-.reduce(createRoutes, app)
+const maped = modules .map(getRoutes)
+console.log('maped', maped)
+maped.reduce(createRoutes, app)
 
 app.get('/ping', (req, res, next) => res.send('pong') )
 
@@ -60,4 +62,3 @@ app.listen(port, () => {
     '\nprocess.cwd = ' + process.cwd())
   console.log('---------------------------------------------------------------------------')
 })
-

@@ -12,5 +12,5 @@ const ROUTES = require('./config.module.routes')(ROUTES_CONFIG)
 
 const ROUTER = require(ROUTER_PATH + CONFIG.ROUTER)
 const MODULE_ROUTER = require(ROUTER_PATH + CONFIG.ROUTES)(ROUTES, ROUTER)
-
+console.log('MODULE_ROUTER', MODULE_ROUTER)
 module.exports = MODULE_ROUTER

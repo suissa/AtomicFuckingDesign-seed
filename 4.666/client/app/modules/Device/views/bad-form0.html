@@ -1,0 +1,35 @@
+<div>
+  <h5 style="text-align: center">Form de {{ vm.MODULE_NAME }} - {{ vm.title }}</h5>
+  <h6>{{ vm.message }}</h6>
+  <form >
+   sc  {{vm.SCHEMA}}
+    <div class="row" ng-repeat="field in vm.SCHEMA">
+      <div >
+        <div ng-show="field.element === 'input' ">
+          <input ng-model="Form[field.name]"
+                  id="{{ field.name }}"
+                  type="{{ field.type }}"
+                  class="validate"
+                  ng-show="{{field.type == 'text'}}">
+          <input ng-model="Form[field.name]" id="{{ field.name }}" type="{{ field.type }}" class="validate" ng-show="{{field.type == 'date'}}">
+
+          <label ng-show="{{field.type == 'checkbox'}}">{{ field.name }}
+          <input ng-model="Form[field.name]" id="{{ field.name }}" type="{{ field.type }}" class="validate" ng-show="{{field.type == 'checkbox'}}"></label>
+        </div>
+
+        <div ng-show="field.element === 'textarea' ">
+          <textarea ng-model="Form[field.name]" id="{{ field.name }}" class="validate" ng-show="{{field.type == 'textarea'}}"></textarea>
+        </div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <button ng-click="vm.action(Form)" class="btn-large waves-effect waves-light col s12 red darken-4">
+          {{ vm.actionButton }}
+        </button>
+      </div>
+    </div>
+  </form>
+
+</div>
