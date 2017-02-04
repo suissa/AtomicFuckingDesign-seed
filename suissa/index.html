@@ -1,0 +1,28 @@
+<!DOCTYPE html >
+<html ng-app="app">
+<head>
+	<title> Suissa Socket.io</title>
+</head>
+<body ng-controller="appCtrl" >
+	<h1> Testando Socket.io </h1>
+	<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+	<script src="http://localhost:5430/socket.io/socket.io.js"></script>
+
+	<script>
+		var socket = io('http://localhost:5430/');
+		var app = angular.module('app',[])
+		app.controller('appCtrl', ['$scope','$http', function($scope,$http){
+
+			$http.get('http://localhost:8000/api/chats').then(function(response){
+				socket.on('message', function(data){
+					console.log(data)
+				})
+			})
+		}])
+
+	</script>
+
+
+	
+</body>
+</html>
