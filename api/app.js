@@ -12,7 +12,8 @@ const favicon = require('serve-favicon')
 // console.log('__dirname', __dirname)
 
 const http = require('http').Server(app);
-const io = require('socket.io')(http, {});
+
+const io = require('socket.io').listen(5430);
 
 const MODULES_PATH = __dirname+'/modules'
 const modules = require('./_config/module/get.modules.js')(MODULES_PATH)
@@ -51,4 +52,3 @@ app.listen(port, () => {
     '\nprocess.cwd = ' + process.cwd())
   console.log('---------------------------------------------------------------------------')
 })
-

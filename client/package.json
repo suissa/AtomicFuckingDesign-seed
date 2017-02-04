@@ -12,6 +12,7 @@
     "angular-material": "^1.1.1",
     "angular-messages": "^1.6.1",
     "angular-sanitize": "^1.6.1",
+    "angular-socket-io": "^0.7.0",
     "angular-touch": "^1.6.1",
     "angular-ui-grid": "^4.0.2",
     "angular-ui-router": "^0.3.2",

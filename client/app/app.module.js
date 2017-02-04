@@ -2,25 +2,30 @@
   'use strict';
 
   angular.module('app', [
-      'app.core',
-      'app.User',
-      'app.Course',
+    'app.core',
+    'btford.socket-io',
+    'app.User',
+    'app.Course',
     ])
-    .config(config)
-    .controller('appCtrl', appCtrl);
+
+  .config(config)
+  .controller('appCtrl', appCtrl)
+  
 
   function config($stateProvider, $urlRouterProvider) {
 
     $stateProvider
-      .state('home', {
-        url: "/home",
-        templateUrl: "app/home.html"
-      });
+    .state('home', {
+      url: "/home",
+      templateUrl: "app/home.html"
+    });
     $urlRouterProvider.otherwise("/home");
   }
   config.$inject = ['$stateProvider', '$urlRouterProvider'];
 
   function appCtrl($mdSidenav) {
+    
+   
     let vm = this;
     vm.appName = 'MonitorCall';
     vm.menus = [{
@@ -49,41 +54,41 @@
     };
 
     vm.menu = [{
-        title: 'Dashboard',
-        ref: "home",
-        icon: "home"
-      }
-              , {
-        title: 'Users',
-        ref: "User-list",
-        icon: "user"
-      }
-              , {
-        title: 'Departments',
-        ref: "Department-list",
-        icon: "group"
-      }
-              , {
-        title: 'Devices',
-        ref: "Device-list",
-        icon: "phone"
-      }
-              , {
-        title: 'Pabx',
-        ref: "Pabx-list",
-        icon: "headphones"
-      }
-              , {
-        title: 'Operation',
-        ref: "Operation-list",
-        icon: "cogs"
-      }
+      title: 'Dashboard',
+      ref: "home",
+      icon: "home"
+    }
+    , {
+      title: 'Users',
+      ref: "User-list",
+      icon: "user"
+    }
+    , {
+      title: 'Departments',
+      ref: "Department-list",
+      icon: "group"
+    }
+    , {
+      title: 'Devices',
+      ref: "Device-list",
+      icon: "phone"
+    }
+    , {
+      title: 'Pabx',
+      ref: "Pabx-list",
+      icon: "headphones"
+    }
+    , {
+      title: 'Operation',
+      ref: "Operation-list",
+      icon: "cogs"
+    }
       //         , {
       //   title: 'User Types',
       //   ref: "UserType-list",
       //   icon: "bolt"
       // }
       ];
-  };
-  appCtrl.$inject = ['$mdSidenav'];
-})();
+    };
+    appCtrl.$inject = ['$mdSidenav'];
+  })();
