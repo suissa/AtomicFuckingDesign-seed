@@ -27,7 +27,7 @@ Por exemplo:
 > Ou seja, quanto mais sistemas você fizer menos terá que fazer.
 
 
-## Ideia 
+## Idéia 
 
 Essa arquitetura atômica foi baseada na minha arquitetura de Atomic Design Behavior do frontend, porém nessa eu fui longeeeeee.
 
