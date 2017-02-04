@@ -33,6 +33,15 @@ app.use((req, res, next) => {
   next()
 })
 
+
+io.sockets.on('connection', function (socket) {
+  console.log('connection no socket')
+  // socket.emit('news', { hello: 'world' });
+  // socket.on('my other event', function (data) {
+  //   console.log(data);
+  // });
+});
+
 /* Cria as rotas dinamicamente a partir dos módulos */
 const getRoutes = require('./_config/routes/get.routes')
 const createRoutes = require('./_config/routes/create.routes')(app)

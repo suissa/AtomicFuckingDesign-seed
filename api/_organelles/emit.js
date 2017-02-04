@@ -1,7 +1,15 @@
 module.exports = (Organism) => 
   (req, res) => {
     const query = {}
-    // console.log('res.io', res.io)
+
+res.io.sockets.on('connection', function (socket) {
+  console.log('connection no socket')
+  // socket.emit('news', { hello: 'world' });
+  // socket.on('my other event', function (data) {
+  //   console.log(data);
+  // });
     res.io.emit('message', 'RECEBI HEIN')
+});
+    // console.log('res.io', res.io)
   }
 
