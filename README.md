@@ -144,3 +144,61 @@ Mesmo o Hádron sendo formado por 3 Quarks, nesse caso teremos apenas 2:
 - validator
 - message
 
+Ou seja, vamos atomizar:
+
+
+
+```js
+
+module.exports = (v) => /[a-zA-Z]/.test(v)
+
+```
+
+```js
+
+module.exports = '{VALUE} its not only letters!'
+
+```
+
+> Agora você já advinhou né?
+
+> SIM! Unindo esses 2 quarks em uma estrutura formamos um hádron, podendo ser próton ou nêutron, mas não vamos falar disso agora.
+
+
+```js
+const HADRON = {
+  validate: {
+    validator: require('../_quarks/onlyLetters')
+    },
+    message: require('../_quarks/onlyLettersMessage')
+  },
+}
+```
+
+Agora voltando ao nosso *Schema*, que agora virou *MOLECULE* pois esse módulo é um agregado de *ATOMS*:
+
+```js
+
+module.exports = {
+  type: String,
+  required: [true, 'name is required'],
+
+}
+
+```
+
+Porém além da sua definição ainda temos sua validação e sua mensagem de erro, a qual também devemos deixar traduzível, por isso importamos apenas a definição
+
+```js
+// _atoms/name
+const name = require('../_atoms/name')
+const validate = require('../_hadrons/name')
+ 
+const ATOM = Object.assign({}, name, validate)
+
+module.exports = ATOM
+```
+
+> Até aí foi...
+
+![suave na nave](http://geradormemes.com/media/created/mn5fmi.jpg)

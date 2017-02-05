@@ -16,9 +16,11 @@ const projects = getProjects('./project/')
 module.exports = (app, db) => {
 
   const models =  db.modelNames()
-
+  const ROUTES_DEFAULT = require('./_config/routes/routes.default') 
+  console.log('ROUTES_DEFAULT', ROUTES_DEFAULT)
   const toAtomicFuckingModule  = ( project ) => {
-    const ROUTES_CONFIG = project.routes
+    const ROUTES_CONFIG = project.routes //.concat(ROUTES_DEFAULT)
+    console.log('ROUTES_CONFIG', ROUTES_CONFIG)
     const { ROUTES, MODULE} = require('./_god/config.module.routes')(project.name, 
       project.fields, 
       ROUTES_CONFIG, db)
