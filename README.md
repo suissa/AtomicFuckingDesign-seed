@@ -89,7 +89,7 @@ A *Molecule* é a definição da estrutura dos campos (*Atoms*) os quais são va
 
 
 
-**Inicialmente questionei-me: **
+**Inicialmente questionei-me:**
 
 > Sempre uso o campo `name` em vários *Schemas/Molecules* **por que não modularizar essa PORRA???**
 
