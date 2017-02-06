@@ -68,6 +68,11 @@ A *Molecule* é a definição da estrutura dos campos (*Atoms*) os quais são va
 
 ![](http://i.imgur.com/zZQpbBN.png)
 
+
+> Ficou *bão*?
+
+![](http://1.bp.blogspot.com/-3wXsbwuVzDY/T7OKmrAFXpI/AAAAAAAABCU/YJt1jCVahI8/s640/AreYouFuckingKiddingMe.png)
+
 > **Por acaso você é louco???**
 
 
