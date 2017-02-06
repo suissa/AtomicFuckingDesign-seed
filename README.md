@@ -202,3 +202,33 @@ module.exports = ATOM
 > Até aí foi...
 
 ![suave na nave](http://geradormemes.com/media/created/mn5fmi.jpg)
+
+### Molecule
+
+Como eu disse anteriormente que a *Molecule* é uma agregação dos *Atoms* vamos criar um exemplo para o módulo de *User*:
+
+
+```js
+// _atoms/name
+const name = require('../_atoms/name')
+const username = require('../_atoms/username')
+const email = require('../_atoms/email')
+const password = require('../_atoms/password')
+const created_at = require('../_atoms/created_at')
+const updated_at = require('../_atoms/updated_at')
+
+const MOLECULE = {
+  name,
+  username,
+  email,
+  password,
+  created_at,
+  updated_at
+}
+
+module.exports = MOLECULE
+```
+
+> Percebeu que apenas criamos a estrutura mas não o *Schema* com o `mongoose`? Quis fazer dessa forma para podermos reutilizar a mesma estrutura de campos com outras *libs* e também outros bancos. Logo mais quero adicionar suporte ao *[Sequelize]()*.
+
+> **Explicarei mais adiante como esses módulos irão se transformar em *Schema* e *Model* do `mongoose`.
