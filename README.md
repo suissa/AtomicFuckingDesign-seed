@@ -80,7 +80,7 @@ A *Molecule* é a definição da estrutura dos campos (*Atoms*) os quais são va
 
 > Sim, mas isso não vem ao caso. Posso explicar-lhe o porquê dessa nomenclatura, acompanhe-me na minha viagem.
 
-**Tudo começou com o átomo...**
+**Tudo começou com o ...**
 
 
 ### ATOM
@@ -221,7 +221,26 @@ module.exports = ATOM
 
 ![suave na nave](http://geradormemes.com/media/created/mn5fmi.jpg)
 
+Agora vamos subir um pouco na nossa arquitetura e criar o que comumente conhecemos como *Schema*, lembrando que começamos do **quântico**:
+
+```
+1 ATOM possui 1 HADRON 
+1 HADRON possui 2 QUARKS
+
+1 QUARK de validação
+1 QUARK de mensagem
+
+1 HADRON de validação do ATOM
+```
+
+**Escrevendo essa documentação notei que o módulo de configuração do ATOM também poderia ser 1 QUARK, com isso o HADRON de cada ATOM realmente teria 3 QUARKS.**
+
+**Entretanto se todos os ATOMS tiverem sempre apenas 1 HADRON todos eles seriam o Hidrogênio!**
+
+
 ### Molecule
+
+![molécula](http://s3.amazonaws.com/stripgenerator/strip/09/30/17/00/00/full.png)
 
 Como eu disse anteriormente que a *Molecule* é uma agregação dos *Atoms* vamos criar um exemplo para o módulo de *User*:
 
