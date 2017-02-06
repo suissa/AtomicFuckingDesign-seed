@@ -27,6 +27,10 @@ Por exemplo:
 > Ou seja, quanto mais sistemas você fizer menos terá que fazer.
 
 
+**Para você ter uma ideia de como está essa arquitetura atual veja [esse meu pequeno exemplo em vídeo](https://www.youtube.com/watch?v=q3403lWy6ZU&t=1s).**
+
+[![](http://i.imgur.com/h2PxjWG.png)](https://www.youtube.com/watch?v=q3403lWy6ZU&t=1s)
+
 ## Ideia 
 
 Essa arquitetura atômica foi baseada na minha arquitetura de Atomic Design Behavior do frontend, porém nessa eu fui longeeeeee.
