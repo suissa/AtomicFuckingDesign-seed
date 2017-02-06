@@ -71,7 +71,14 @@ A *Molecule* é a definição da estrutura dos campos (*Atoms*) os quais são va
 
 **Tudo começou com o átomo...**
 
-Inicialmente questionei-me: 
+
+### ATOM
+
+![atomo](http://cacm.acm.org/system/assets/0001/3040/090613_iStock_Gold-Atom.large.jpg?1476779479&1378475075)
+
+
+
+**Inicialmente questionei-me: **
 
 > Sempre uso o campo `name` em vários *Schemas/Molecules* **por que não modularizar essa PORRA???**
 
