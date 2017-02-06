@@ -240,7 +240,7 @@ Agora vamos subir um pouco na nossa arquitetura e criar o que comumente conhecem
 
 ### Molecule
 
-![molécula](http://s3.amazonaws.com/stripgenerator/strip/09/30/17/00/00/full.png)
+![molécula da cafeína](https://s-media-cache-ak0.pinimg.com/originals/ad/5b/b0/ad5bb0ad27f4917ad6912049fa6f1800.png)
 
 Como eu disse anteriormente que a *Molecule* é uma agregação dos *Atoms* vamos criar um exemplo para o módulo de *User*:
 
