@@ -270,9 +270,10 @@ const MOLECULE = {
 module.exports = MOLECULE
 ```
 
-> Percebeu que apenas criamos a estrutura mas não o *Schema* com o `mongoose`? Quis fazer dessa forma para podermos reutilizar a mesma estrutura de campos com outras *libs* e também outros bancos. Logo mais quero adicionar suporte ao *[Sequelize]()*.
+> Percebeu que apenas criamos a estrutura mas não o *Schema* com o `mongoose`? Quis fazer dessa forma para podermos reutilizar a mesma estrutura de campos com outras *libs* e também outros bancos. Logo mais quero adicionar suporte ao *[Sequelize](http://docs.sequelizejs.com/en/v3/)*.
 
-> **Explicarei mais adiante como esses módulos irão se transformar em *Schema* e *Model* do `mongoose`**.
+
+**Explicarei mais adiante como esses módulos irão se transformar em *Schema* e *Model* do `mongoose`**.
 
 
 
