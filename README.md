@@ -272,11 +272,13 @@ module.exports = MOLECULE
 
 > Percebeu que apenas criamos a estrutura mas não o *Schema* com o `mongoose`? Quis fazer dessa forma para podermos reutilizar a mesma estrutura de campos com outras *libs* e também outros bancos. Logo mais quero adicionar suporte ao *[Sequelize]()*.
 
-> **Explicarei mais adiante como esses módulos irão se transformar em *Schema* e *Model* do `mongoose`.
+> **Explicarei mais adiante como esses módulos irão se transformar em *Schema* e *Model* do `mongoose`**.
 
 
 
 ### Organism
+
+> **Antes de tudo não esqueça que ainda estamos vendo apenas o conceito de cada parte, pois o que faz essa arquitetura ser toda automatizada de verdade são suas *FACTORIES* que geram as estruturas específicas de forma dinâmica.**
 
 ![celula](https://bam.files.bbci.co.uk/bam/live/content/zgqd2hv/large)
 
