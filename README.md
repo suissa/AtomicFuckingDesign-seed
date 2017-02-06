@@ -35,7 +35,7 @@ Por exemplo:
 
 Essa arquitetura atômica foi baseada na minha arquitetura de Atomic Design Behavior do frontend, porém nessa eu fui longeeeeee.
 
-Basicamente você **NUNCA** irá iniciar **NADA** com um arquivo novo, **SEMPRE** irá abrir um já existente e deve salva-lo com outro nome e aí sim colocar sua lógica.
+Basicamente você **NUNCA** iniciará **NADA** com um arquivo novo, **SEMPRE** abrirá um já existente e deverá salva-lo com outro nome, para aí sim escrever sua lógica.
 
 Existem apenas 3 pastas onde você poderá criar arquivos novos:
 
@@ -48,15 +48,15 @@ Existem apenas 3 pastas onde você poderá criar arquivos novos:
 - _factories
 - _hadrons
 
-Sobrando a pasta de `modules` a qual armazena os módulos que usarão os módulos atômicos
+Sobra apenas a pasta de `modules` a qual armazena os módulos que usarão os módulos atômicos.
 
 
-Caso você ainda não esteja habituado com esses termos de Física Quântica (quarks, hadrons), Química
+Caso você ainda não esteja habituado com esses termos de Física Quântica (*quarks*, *hadrons*), Química (*atom*, *molecule*) e Biologia (*organelle*, *ribosome*) não se preocupe, explicarei nessa documentação.
 
 
 ## Arquitetura
 
-Para facilitar a visualização dessa arquitetura montei esse simples Diagrama de Venn, onde podemos ver que o *Organism* é composto de:
+Para facilitar a visualização dessa arquitetura montei esse simples Diagrama de Venn onde podemos ver que o *Organism* é composto de:
 
 - *Molecule*
 - *Organelle*
@@ -76,9 +76,11 @@ A *Molecule* é a definição da estrutura dos campos (*Atoms*) os quais são va
 > **Por acaso você é louco???**
 
 
+.
 
-
-> Sim, mas isso não vem ao caso. Posso explicar-lhe o porquê dessa nomenclatura, acompanhe-me na minha viagem.
+> Sim, mas isso não vem ao caso. 
+> 
+> Explicar-lhe-ei o porquê dessa nomenclatura. Acompanhe-me na minha viagem...
 
 **Tudo começou com o ...**
 
@@ -135,9 +137,12 @@ const schema = {
 }
 ```
 
-Eu nomeei de Átomo a configuração de `PROPS` e de Hádron o objeto de `VALIDATE`.
+Eu nomeei de *ATOM* a configuração de `PROPS` e de *HADRON* o objeto `VALIDATE`.
 
 > **Suissa por que raios você chamou de Hádron?**
+
+
+.
 
 
 > Hádron, em Física de Partículas, é uma partícula composta, formada por um estado ligado de quarks.
