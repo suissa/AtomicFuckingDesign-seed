@@ -231,6 +231,10 @@ Agora vamos subir um pouco na nossa arquitetura e criar o que comumente conhecem
 1 QUARK de mensagem
 
 1 HADRON de validação do ATOM
+1 ATOM com suas configurações e seu HADRON
+
+// nota: pensei em modificar essa parte da config do ATOM
+// para virar 1 QUARK
 ```
 
 **Escrevendo essa documentação notei que o módulo de configuração do ATOM também poderia ser 1 QUARK, com isso o HADRON de cada ATOM realmente teria 3 QUARKS.**
@@ -269,3 +273,40 @@ module.exports = MOLECULE
 > Percebeu que apenas criamos a estrutura mas não o *Schema* com o `mongoose`? Quis fazer dessa forma para podermos reutilizar a mesma estrutura de campos com outras *libs* e também outros bancos. Logo mais quero adicionar suporte ao *[Sequelize]()*.
 
 > **Explicarei mais adiante como esses módulos irão se transformar em *Schema* e *Model* do `mongoose`.
+
+
+
+### Organism
+
+![celula](https://bam.files.bbci.co.uk/bam/live/content/zgqd2hv/large)
+
+O *ORGANISM* que criamos pode ser comparado à uma célula, onde a mesma é gerada por um *DNA* que contém a sua própria configuração a qual inclui da sua *MOLECULE* também.
+
+Comparando ao que estamos acostumados esse módulo seria um *Controller* que utiliza um *Model*, logo será ele que possuíra as funções que serão executadas em cada rota, essas funções eu nomeei de: *ORGANELLES*.
+
+Porém não criamos essas funções diretamente em cada *ORGANISM*, em vez disso criamos cada uma em um módulo separado que irá receber esse *ORGANISM* para daí sim executar a função, bom vamos ver um exemplo:
+
+```js
+module.exports = (Organism) => 
+  (req, res) => {
+    const query = req.body
+    const success = require('./ribossomos/success-200-json')(res)
+    const error = require('./ribossomos/error-json')(res)
+    
+    return Organism.create(query)
+                              .then(success)
+                              .catch(error)
+  }
+```
+
+Nessa arquitetura as *ORGANELLES* precisam receber qual *ORGANISM* receberá essa função que será executada em alguma rota, por isso essa parte:
+
+
+```js
+
+module.exports = (Organism) => 
+  (req, res) => { ... }
+
+```
+
+Isso só funciona porque **TODOS** os *ORGANISMS* são criados a partir de um *Model*, logo todos possuem as mesmas funções disponíveis no `mongoose`. Com isso conseguimos criar funções genéricas que podem ser reutilizadas em **qualquer** *ORGANISM*.
