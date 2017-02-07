@@ -98,6 +98,7 @@ A *Molecule* é a definição da estrutura dos campos (*Atoms*) os quais são va
 Vamos analisar como é o campo `name` no *Schema* do Mongoose:
 
 ```js
+
 const schema = {
   name: {
     type: String,
@@ -109,11 +110,13 @@ const schema = {
     }
   }
 }
+
 ```
 
 Na minha lógica separei em duas partes:
 
 ```js
+
 const ATOM_NAME = 'name'
 
 const PROPS = { 
@@ -135,6 +138,7 @@ const schema = {
     VALIDATE
   }
 }
+
 ```
 
 Eu nomeei de *ATOM* a configuração de `PROPS` e de *HADRON* o objeto `VALIDATE`.
@@ -147,12 +151,14 @@ Eu nomeei de *ATOM* a configuração de `PROPS` e de *HADRON* o objeto `VALIDATE
 
 > Hádron, em Física de Partículas, é uma partícula composta, formada por um estado ligado de quarks.
 
-*fonte: https://pt.wikipedia.org/wiki/H%C3%A1dron*
+
+*fonte: [https://pt.wikipedia.org/wiki/H%C3%A1dron](https://pt.wikipedia.org/wiki/H%C3%A1dron)*
 
 
 Então vamos analisar nosso objeto:
 
 ```js
+
 const VALIDATE = {
   validate: {
     validator: (v) => /[a-zA-Z]/.test(v)
@@ -160,6 +166,7 @@ const VALIDATE = {
     message: '{VALUE} its not only letters!'
   },
 }
+
 ```
 
 Mesmo o Hádron sendo formado por 3 Quarks, nesse caso teremos apenas 2:
@@ -196,6 +203,7 @@ const HADRON = {
     message: require('../_quarks/onlyLettersMessage')
   },
 }
+
 ```
 
 Agora voltando ao nosso *Schema*, que agora virou *MOLECULE* pois esse módulo é um agregado de *ATOMS*:
@@ -244,14 +252,14 @@ Agora vamos subir um pouco na nossa arquitetura e criar o que comumente conhecem
 
 **Escrevendo essa documentação notei que o módulo de configuração do ATOM também poderia ser 1 QUARK, com isso o HADRON de cada ATOM realmente teria 3 QUARKS.**
 
-**Entretanto se todos os ATOMS tiverem sempre apenas 1 HADRON todos eles seriam o Hidrogênio!**
+**Entretanto se todos os ATOMS sempre tiverem apenas 1 HADRON todos eles seriam iguais ao núcleo do Hidrogênio!**
 
 
 ### Molecule
 
 ![molécula da cafeína](https://s-media-cache-ak0.pinimg.com/originals/ad/5b/b0/ad5bb0ad27f4917ad6912049fa6f1800.png)
 
-Como eu disse anteriormente que a *Molecule* é uma agregação dos *Atoms* vamos criar um exemplo para o módulo de *User*:
+Como eu disse anteriormente que a *Molecule* é uma agregação dos *Atoms*, vamos criar um exemplo para o módulo de *User*:
 
 
 ```js
@@ -275,7 +283,9 @@ const MOLECULE = {
 module.exports = MOLECULE
 ```
 
-> Percebeu que apenas criamos a estrutura mas não o *Schema* com o `mongoose`? Quis fazer dessa forma para podermos reutilizar a mesma estrutura de campos com outras *libs* e também outros bancos. Logo mais quero adicionar suporte ao *[Sequelize](http://docs.sequelizejs.com/en/v3/)*.
+> Percebeu que apenas criamos a estrutura mas não o *Schema* com o `mongoose`? 
+> 
+> Eu quis fazer dessa forma para podermos reutilizar essa mesma estrutura de campos com outras *libs* e também outros bancos. Logo mais quero adicionar suporte ao *[Sequelize](http://docs.sequelizejs.com/en/v3/)*.
 
 
 **Explicarei mais adiante como esses módulos irão se transformar em *Schema* e *Model* do `mongoose`**.
@@ -288,13 +298,30 @@ module.exports = MOLECULE
 
 ![celula](https://bam.files.bbci.co.uk/bam/live/content/zgqd2hv/large)
 
-O *ORGANISM* que criamos pode ser comparado à uma célula, onde a mesma é gerada por um *DNA* que contém a sua própria configuração a qual inclui da sua *MOLECULE* também.
+O *ORGANISM* que criamos pode ser comparado à uma célula, onde a mesma é gerada por um *DNA* que contém sua própria configuração a qual inclui a da sua *MOLECULE* também.
 
-Comparando ao que estamos acostumados esse módulo seria um *Controller* que utiliza um *Model*, logo será ele que possuíra as funções que serão executadas em cada rota, essas funções eu nomeei de: *ORGANELLES*.
 
-Porém não criamos essas funções diretamente em cada *ORGANISM*, em vez disso criamos cada uma em um módulo separado que irá receber esse *ORGANISM* para daí sim executar a função, bom vamos ver um exemplo:
+
+### ORGANELLE
+
+
+> Em biologia celular, organelas, organelos, ou ainda organitos, ("pequenos órgãos") são compartimentos delimitados por membrana que têm papeis específicos a desempenhar na função global de uma célula. As organelas trabalham de maneira integrada, cada uma assumindo uma ou mais funções celulares.
+
+
+
+*fonte: [https://pt.wikipedia.org/wiki/Organelo](https://pt.wikipedia.org/wiki/Organelo)*
+  
+
+Comparando com o que estamos acostumados esse módulo seria um *Controller* que utiliza um *Model*, logo será ele o responsável pelas funções que serão executadas em cada rota, essas funções eu nomeei de: *ORGANELLES*.
+
+Porém não criamos essas funções diretamente em cada *ORGANISM*, em vez disso criamos cada uma em um módulo separado que irá receber esse *ORGANISM* para daí sim executar a função.
+
+
+Vamos ver um exemplo:
+
 
 ```js
+
 module.exports = (Organism) => 
   (req, res) => {
     const query = req.body
@@ -305,9 +332,10 @@ module.exports = (Organism) =>
                               .then(success)
                               .catch(error)
   }
+
 ```
 
-Nessa arquitetura as *ORGANELLES* precisam receber qual *ORGANISM* receberá essa função que será executada em alguma rota, por isso essa parte:
+Nessa arquitetura a *ORGANELLE* precisa receber um *ORGANISM* que receberá essa função, a qual será executada em alguma rota, por isso essa parte:
 
 
 ```js
@@ -317,4 +345,8 @@ module.exports = (Organism) =>
 
 ```
 
-Isso só funciona porque **TODOS** os *ORGANISMS* são criados a partir de um *Model*, logo todos possuem as mesmas funções disponíveis no `mongoose`. Com isso conseguimos criar funções genéricas que podem ser reutilizadas em **qualquer** *ORGANISM*.
+Isso só funciona porque **TODOS** os *ORGANISMS* são criados a partir de um *Model*, portanto todos possuem as mesmas funções disponíveis no `mongoose`. 
+
+
+Com esses **módulos atômicos** conseguimos criar funções genéricas o suficiente para que sejam reutilizadas em **qualquer** *ORGANISM*.
+
