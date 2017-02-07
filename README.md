@@ -353,3 +353,92 @@ Com esses **módulos atômicos** conseguimos criar funções genéricas o sufici
 
 ### RIBOSOME
 
+São as funções que irão trabalhar o resultado da *ORGANELLE*.
+
+**DEPOIS EXPLICO MELHOR**
+
+
+## Project
+
+Está na hora entender como tudo isso funciona como um Sistema Web.
+
+Iniciaremos pelo `app.js` que é o módulo no nosso servidor Web, utilizando [Express]():
+
+```js
+
+const db = require('./_config/db')
+const path = require('path')
+const express = require('express')
+const app = express()
+const port = process.env.PORT || 8000
+const morgan = require('morgan')
+const cookieParser = require('cookie-parser')
+const bodyParser = require('body-parser')
+const cors = require('cors')
+const compress = require('compression')
+const favicon = require('serve-favicon')
+
+app.use(express.static(path.join(__dirname, '/public')));
+
+app.use(morgan('dev'))
+app.use(cookieParser())
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
+app.use(cors())
+app.use(compress()) // Compress response data with gzip
+  // app.use(favicon(__dirname + '/favicon.ico'))
+
+// Pego os módulos
+const MODULES_PATH = __dirname+'/modules'
+const modules = require('./_config/module/get.modules.js')(MODULES_PATH)
+const api = {}
+
+/* Cria as rotas dinamicamente a partir dos módulos */
+const getRoutes = require('./_config/routes/get.routes')
+const createRoutes = require('./_config/routes/create.routes')(app)
+
+modules 
+  .map(getRoutes)
+  .reduce(createRoutes, app)
+
+app.get('/ping', (req, res, next) => res.send('pong') )
+
+app.listen(port, () => {
+  console.log('---------------------------------------------------------------------------')
+  console.log('Express server listening on port ' + port)
+  console.log('env = ' + app.get('env') +
+    '\n__dirname = ' + __dirname +
+    '\nprocess.cwd = ' + process.cwd())
+  console.log('---------------------------------------------------------------------------')
+})
+
+```
+
+Pela lógica vamos começar pelo Banco de Dados, o qual importamos logo na primeira linha:
+
+```js
+
+const db = require('./_config/db')
+
+```
+
+O conteúdo desse módulo é o seguinte:
+
+```js
+
+const mongoose = require('mongoose')
+
+const DB = 'db-ead-test'
+mongoose.connect('mongodb://localhost/' + DB)
+mongoose.Promise = require('bluebird')
+
+const db = mongoose.connection
+
+db.on('error', (err) => console.log('Erro de conexao.', err) )
+db.on('open', () => console.log('Conexão aberta.') )
+db.on('connected', (err) => console.log('Conectado na base: ', DB) )
+db.on('disconnected', (err) => console.log('Desconectado') )
+
+module.exports = db
+
+```
