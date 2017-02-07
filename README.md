@@ -296,9 +296,10 @@ module.exports = MOLECULE
 
 > **Antes de tudo não esqueça que ainda estamos vendo apenas o conceito de cada parte, pois o que faz essa arquitetura ser toda automatizada de verdade são suas *FACTORIES* que geram as estruturas específicas de forma dinâmica.**
 
-![celula](https://bam.files.bbci.co.uk/bam/live/content/zgqd2hv/large)
+![celula](http://www.estudopratico.com.br/wp-content/uploads/2014/11/organelas-celulares-quais-sao-e-suas-funcoes.jpg)
 
-O *ORGANISM* que criamos pode ser comparado à uma célula, onde a mesma é gerada por um *DNA* que contém sua própria configuração a qual inclui a da sua *MOLECULE* também.
+O *ORGANISM* que criamos pode ser comparado a uma célula, onde a mesma é gerada 
+por um *DNA* que contém sua própria configuração a qual inclui a da sua *MOLECULE* também.
 
 
 
@@ -422,14 +423,14 @@ const db = require('./_config/db')
 
 ```
 
-O conteúdo desse módulo é o seguinte:
+É nesse módulo que você deve definir o nome do seu banco de dados, como também as funçōes que serão executadas nos eventos da conexão:
 
 ```js
 
-const mongoose = require('mongoose')
+const DB_NAME = 'db-ead-test'
+const HOST = 'localhost'
 
-const DB = 'db-ead-test'
-mongoose.connect('mongodb://localhost/' + DB)
+mongoose.connect(`mongodb://${HOST}/${DB_NAME}`)
 mongoose.Promise = require('bluebird')
 
 const db = mongoose.connection
@@ -442,3 +443,71 @@ db.on('disconnected', (err) => console.log('Desconectado') )
 module.exports = db
 
 ```
+
+A parte que mais me interessa explicar é essa:
+
+```js
+
+// Pego os módulos
+const MODULES_PATH = __dirname+'/modules'
+const modules = require('./_config/module/get.modules.js')(MODULES_PATH)
+const api = {}
+
+/* Cria as rotas dinamicamente a partir dos módulos */
+const getRoutes = require('./_config/routes/get.routes')
+const createRoutes = require('./_config/routes/create.routes')(app)
+
+modules 
+  .map(getRoutes)
+  .reduce(createRoutes, app)
+
+```
+
+Vejamos o conteúdo de cara módulo importado:
+
+```js
+
+// _config/module/get.modules.js
+const fs = require('fs')
+const path = require('path')
+
+module.exports = (MODULES_PATH) => 
+  fs.readdirSync(MODULES_PATH)
+    .filter( (file) => (file.startsWith('_') || file.startsWith('.'))
+                        ? false
+                        : fs.statSync( path.join(MODULES_PATH, file) )
+                            .isDirectory()
+            )
+
+```
+
+```js
+
+// _config/routes/get.routes
+const MODULES_PATH = './../../modules/'
+
+module.exports = (module, i) => {
+  
+  let path = '/api/' + module.toLowerCase()
+  if (!path.endsWith('s')) path += 's'
+  
+  console.log('return', { 
+    path, 
+    module: MODULES_PATH + module 
+  })  
+  return { 
+    path, 
+    module: MODULES_PATH + module 
+  }
+}
+
+```
+
+```js
+
+// _config/routes/create.routes
+module.exports = (app) => (app, route) => 
+  app.use(route.path, require(route.module))
+
+```
+
