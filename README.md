@@ -40,7 +40,7 @@ Basicamente você **NUNCA** iniciará **NADA** com um arquivo novo, **SEMPRE** a
 Existem apenas 3 pastas onde você poderá criar arquivos novos:
 
 - _atoms
-- _organelles
+- _ORGANELLEs
 - _quarks
 
 **NUNCA mexa nos arquivos dentro de:**
@@ -51,19 +51,19 @@ Existem apenas 3 pastas onde você poderá criar arquivos novos:
 Sobra apenas a pasta de `modules` a qual armazena os módulos que usarão os módulos atômicos.
 
 
-Caso você ainda não esteja habituado com esses termos de Física Quântica (*quarks*, *hadrons*), Química (*atom*, *molecule*) e Biologia (*organelle*, *ribosome*) não se preocupe, explicarei nessa documentação.
+Caso você ainda não esteja habituado com esses termos de Física Quântica (*quarks*, *hadrons*), Química (*atom*, *MOLECULE*) e Biologia (*ORGANELLE*, *ribosome*) não se preocupe, explicarei nessa documentação.
 
 
 ## Arquitetura
 
 Para facilitar a visualização dessa arquitetura montei esse simples Diagrama de Venn onde podemos ver que o *Organism* é composto de:
 
-- *Molecule*
-- *Organelle*
+- *MOLECULE*
+- *ORGANELLE*
 
-A *Organelle* é a função que será executada quando houver uma requisição em uma rota, sua resposta será devolvida pelo *Ribosome*.
+A *ORGANELLE* é a função que será executada quando houver uma requisição em uma rota, sua resposta será devolvida pelo *Ribosome*.
 
-A *Molecule* é a definição da estrutura dos campos (*Atoms*) os quais são validados pelos *Quarks*.
+A *MOLECULE* é a definição da estrutura dos campos (*Atoms*) os quais são validados pelos *Quarks*.
 
 
 ![](http://i.imgur.com/zZQpbBN.png)
@@ -93,7 +93,7 @@ A *Molecule* é a definição da estrutura dos campos (*Atoms*) os quais são va
 
 **Inicialmente questionei-me:**
 
-> Sempre uso o campo `name` em vários *Schemas/Molecules* **por que não modularizar essa PORRA???**
+> Sempre uso o campo `name` em vários *Schemas/MOLECULEs* **por que não modularizar essa PORRA???**
 
 Vamos analisar como é o campo `name` no *Schema* do Mongoose:
 
@@ -255,11 +255,11 @@ Agora vamos subir um pouco na nossa arquitetura e criar o que comumente conhecem
 **Entretanto se todos os ATOMS sempre tiverem apenas 1 HADRON todos eles seriam iguais ao núcleo do Hidrogênio!**
 
 
-### Molecule
+### MOLECULE
 
 ![molécula da cafeína](https://s-media-cache-ak0.pinimg.com/originals/ad/5b/b0/ad5bb0ad27f4917ad6912049fa6f1800.png)
 
-Como eu disse anteriormente que a *Molecule* é uma agregação dos *Atoms*, vamos criar um exemplo para o módulo de *User*:
+Como eu disse anteriormente que a *MOLECULE* é uma agregação dos *Atoms*, vamos criar um exemplo para o módulo de *User*:
 
 
 ```js
@@ -349,4 +349,7 @@ Isso só funciona porque **TODOS** os *ORGANISMS* são criados a partir de um *M
 
 
 Com esses **módulos atômicos** conseguimos criar funções genéricas o suficiente para que sejam reutilizadas em **qualquer** *ORGANISM*.
+
+
+### RIBOSOME
 
