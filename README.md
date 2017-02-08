@@ -444,6 +444,8 @@ module.exports = db
 
 ```
 
+### Detalhando carregamento dos módulos
+
 A parte que mais me interessa explicar é essa:
 
 ```js
@@ -463,7 +465,7 @@ modules
 
 ```
 
-Vejamos o conteúdo de cara módulo importado:
+Vejamos o conteúdo do módulo importado:
 
 ```js
 
@@ -480,6 +482,10 @@ module.exports = (MODULES_PATH) =>
             )
 
 ```
+
+Detalhando um pouco, essa função `fs.readdirSync(MODULES_PATH)`  retorna um *Array*, 
+com o nome dos arquivos que estão na pasta `MODULES_PATH`
+
 
 ```js
 

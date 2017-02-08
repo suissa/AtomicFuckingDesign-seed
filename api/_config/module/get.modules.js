@@ -8,4 +8,3 @@ module.exports = (MODULES_PATH) =>
                         : fs.statSync( path.join(MODULES_PATH, file) )
                             .isDirectory()
             )
-    // console.log('file', file) 

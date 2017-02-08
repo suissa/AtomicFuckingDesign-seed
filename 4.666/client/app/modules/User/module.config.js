@@ -12,12 +12,6 @@
 
   function config($stateProvider, $urlRouterProvider) {
     $stateProvider
-      // .state(`${MODULE_NAME}-list`, {
-      //   url: `/${PATH}`,
-      //   templateUrl: `${MODULE_PATH}/${MODULE_NAME}/views/data.html`,
-      //   controller: `${MODULE_NAME}ListController`,
-      //   controllerAs: CONTROLLERAS
-      // })
       .state(`${MODULE_NAME}-list`, {
         url: `/${PATH}/`,
         templateUrl: `${MODULE_PATH}/${MODULE_NAME}/views/data.html`,
