@@ -1,45 +1,13 @@
 module.exports = (Organism) => 
   (req, res) => {
-    // const success = require('./ribossomos/success-200-json')(res)
-    // const error = require('./ribossomos/error-json')(res)
+    const substrate = {}
+    const cofactors = { req, res }
+    const enzyme = __filename.split(`_organelles/`)[1].split('.js')[0]
+    const convertToProduct = require(`./ribossomos/success-200-json`)(res)
+    const inhibitor = require(`./ribossomos/error-json`)(res)
+    const catalyze = require(`./../_enzymes/${enzyme}`)
 
-    const query = req.query
-    console.log('query', query)
-    let filtros = Object
-                        .keys( query )
-                        .map( el => ( Number.isNaN( parseInt( query[el] ) ) )
-                                              ? {[el]: new RegExp(query[el].trim(), 'gi') }
-                                              : {[el]: query[el]} )
-                        .reduce((acc, cur) => Object.assign(acc, cur), {})
-
-    delete filtros.page
-
-    const limit = 20
-    let page = (req.query.page) ? parseInt(req.query.page) : 0
-    const skip = limit * parseInt(page)
-    page += 1 
-
-    console.log('req.query.page', req.query.page)
-    console.log('filtros', filtros)
-    console.log('limit', limit)
-    console.log('skip', skip)
-
-    const success = (data) => Organism
-                                            .find(filtros)
-                                              .count((err, total) => {
-                                                console.log('count', total)
-                                                const pages = (total <= 20) ? 1 : Math.ceil(total / limit)
-                                                data.push({pages, page})
-                                                return res.json(data)  })
-    // const success = (data) => res.json(data)
-    const error = (err) => res.json(err)
-
-    Organism
-      .find(filtros)
-      .limit(limit)
-      .skip(skip)
-      .exec()
-      .then(success)
-      .catch((err) => console.log('err', err)) 
+    return catalyze( Organism, substrate, cofactors )
+                                .then( convertToProduct )
+                                .catch( inhibitor )
   }
-

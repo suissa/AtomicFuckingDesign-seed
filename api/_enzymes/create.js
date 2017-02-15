@@ -1,0 +1,1 @@
+module.exports = (Organism, query) => Organism.create(query).exec()
