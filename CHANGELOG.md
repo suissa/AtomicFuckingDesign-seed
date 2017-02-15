@@ -39,12 +39,17 @@ nas vias metabólicas como as rotas da nossa API.
 **Fazendo apenas um adendo,** analise essa frase: "o produto de uma reação é utilizado 
 como reagente na reação seguinte"
 
-> Te lembra algo?
-
+Podemos exemplificar assim:
 
 ```js
 
-reactions.filter( getEnzymes ).map( catalyze ).reduce( toProduct )
+const Reaction = ( reagent ) => react( reagent )
+
+const product1 = Reaction( reagent )
+const product2 = Reaction( product1 )
+const product3 = Reaction( product2 )
+
+// ...
 
 ```
 
@@ -61,7 +66,22 @@ Após essa introdução básica vamos entender como a Enzima trabalha:
 
  > As enzimas convertem uma substância, chamada de substrato, noutra denominada produto, 
  > e são extremamente específicas para a reação que catalisam. Isso significa que, em geral, uma 
- > enzima catalisa um e só um tipo de reacção química. Consequentemente, o tipo de enzimas encontradas numa célula determina o tipo de metabolismo que a célula efetua.
+ > enzima catalisa um e só um tipo de reacção química. Consequentemente, o tipo de enzimas 
+ > encontradas numa célula determina o tipo de metabolismo que a célula efetua.
+
+
+Podemos fazer a seguinte analogia: **se as enzimas convetem X em Y podemos dizer 
+que ela é uma função.**
+
+
+
+
+
+```js
+
+const product = Enzyme.catalyze( Reaction( substrate ) )
+
+```
 
 
 ```js
