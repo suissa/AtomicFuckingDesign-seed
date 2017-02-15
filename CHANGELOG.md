@@ -1,4 +1,4 @@
-# Atomic FUCKING Design seed
+# Atomic FUCKING BIO Design - 
 
 Fiz uma pequena grande mudança nas *Organelles* para melhorar meu conceito biológico, 
 dessa vez adicionei o conceito de *Enzyme* (enzima), o qual possui algumas características, 
