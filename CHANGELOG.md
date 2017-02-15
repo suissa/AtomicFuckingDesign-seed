@@ -97,3 +97,6 @@ module.exports = (Organism) =>
 - [Substrate](https://en.wikipedia.org/wiki/Substrate_(chemistry))
 - [Metabolism](https://en.wikipedia.org/wiki/Metabolism)
 - [Metabolic pathway](https://en.wikipedia.org/wiki/Metabolic_pathway)
+
+
+![](https://cdn.meme.am/cache/instances/folder230/47194230.jpg)
