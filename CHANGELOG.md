@@ -214,7 +214,19 @@ module.exports = (Organism) => (req, res) => {
 }
 ```
 
+
+Percebeu que agora eu pego o nome da Enzima a partir do nome do seu arquivo???
+
+
+```js
+
+const enzyme = __filename.split(`_organelles/`)[1].split('.js')[0]
+
+```
+
+
 Agora apenas observe nossa Enzima:
+
 
 ```js
 
@@ -227,11 +239,7 @@ module.exports = (Organism, query, {req, res}) => {
                                               : {[el]: query[el]} )
                         .reduce(( acc, cur ) => Object.assign( acc, cur ), {})
 
-    return Organism
-                  .find(filtros)
-                  .limit(limit)
-                  .skip(skip)
-                  .exec() 
+    return Organism.find( filtros ).exec() 
 }
 
 ```
