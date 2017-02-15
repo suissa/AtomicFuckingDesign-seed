@@ -2,8 +2,8 @@ const toPopulate = require('./helpers/toPopulate')
 
 module.exports = (Organism) => 
   (req, res) => {
-    const success = require('./ribossomos/success-200-json')(res)
-    const error = require('./ribossomos/error-json')(res)
+    const success = require('./ribosomes/success-200-json')(res)
+    const error = require('./ribosomes/error-json')(res)
 
     const removeUnderlineFields = (field) => !field.includes('_')
     const removeNotObjectID = (field) => Organism
@@ -12,7 +12,7 @@ module.exports = (Organism) =>
                                                                     .instance == 'ObjectID'
                                   // || Organism.schema.paths[field].instance == 'Array' )
 
-    const fields = (req.query.entities)
+    const fields = (req.query.entities)  
                             ? req.query.entities.split(',')
                             : Object
                                 .keys(Organism.schema.paths)
@@ -20,7 +20,7 @@ module.exports = (Organism) =>
                                 .filter( fi )
                     
     const query = {_id: req.params.id}
-    const fieldsToPopulate = fields.reduce(toPopulate, [])
+    const fieldsToPopulate = fields.reduce( toPopulate, [] )
 
     return Organism.findOne(query)
                 .populate(fieldsToPopulate)

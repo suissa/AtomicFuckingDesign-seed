@@ -1,7 +1,7 @@
 module.exports = (Organism) => 
   (req, res) => {
-    const success = require('./ribossomos/success-200-json')(res)
-    const error = require('./ribossomos/error-json')(res)
+    const success = require('./ribosomes/success-200-json')(res)
+    const error = require('./ribosomes/error-json')(res)
 
     const query = {deviceId: req.params.id}
     const mod = req.body
