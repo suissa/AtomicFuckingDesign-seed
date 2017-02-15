@@ -14,10 +14,10 @@ module.exports = (Organism, query, {req, res}) => {
     const skip = limit * parseInt(page)
     page += 1 
 
-    // console.log('req.query.page', req.query.page)
-    // console.log('filtros', filtros)
-    // console.log('limit', limit)
-    // console.log('skip', skip)
+    console.log('req.query.page', req.query.page)
+    console.log('filtros', filtros)
+    console.log('limit', limit)
+    console.log('skip', skip)
 
     const success = (data) => Organism
                                             .find(filtros)

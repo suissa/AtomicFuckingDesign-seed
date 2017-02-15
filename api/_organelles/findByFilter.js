@@ -1,7 +1,6 @@
-module.exports = (Organism) => 
-  (req, res) => {
-    
-    const substrate = {}
+module.exports = (Organism) => (req, res) => {
+
+    const substrate = req.query
     const cofactors = { req, res }
     const enzyme = __filename.split(`_organelles/`)[1].split('.js')[0]
     const convertToProduct = require(`./ribossomos/success-200-json`)(res)

@@ -122,7 +122,7 @@ module.exports = (Organism) =>
 
 Primeira coisa que faremos é separar a Enzima desse código.
 
-![](http://i.giphy.com/e7eBd417vuyFG.gif)
+![](https://media.giphy.com/media/gpufDFw0sPBYY/giphy.gif)
 
 
 > **CALMA!** 
@@ -189,6 +189,53 @@ Já sabemos que o *callback* de erro foi instanciado em `inhibitor`, sei que par
 nomear **tão diferentemente** o sucesso do erro, porém para esse contexto achei que foi a 
 melhor solução, mas estou sempre aberto a sugestōes.
 
+Você deve se indagar:
+
+> Mas e a **porra** do `cofactors` você fez só de bonito?
+>  
+> - Não, fiz de lindo.
+
+Ainda não usamos o `cofactors` pois a Enzima de *find* não precisou, mas vamos ver uma Enzima 
+que precise: `findByFilter`.
+
+```js
+
+module.exports = (Organism) => (req, res) => {
+
+    const substrate = req.query
+    const cofactors = { req, res }
+    const enzyme = __filename.split(`_organelles/`)[1].split('.js')[0]
+    const convertToProduct = require(`./ribosomes/success-200-json`)(res)
+    const inhibitor = require(`./ribosomes/error-json`)(res)
+    const catalyze = require(`./../_enzymes/${enzyme}`)
+
+    return catalyze( Organism, substrate, cofactors )
+                                .then( convertToProduct )
+                                .catch( inhibitor )
+}
+```
+
+Agora apenas observe nossa Enzima:
+
+```js
+
+module.exports = (Organism, query, {req, res}) => {
+
+    let filtros = Object
+                        .keys( query )
+                        .map( el => ( Number.isNaN( parseInt( query[el] ) ) )
+                                              ? {[el]: new RegExp(query[el].trim(), 'gi') }
+                                              : {[el]: query[el]} )
+                        .reduce(( acc, cur ) => Object.assign( acc, cur ), {})
+
+    return Organism
+                  .find(filtros)
+                  .limit(limit)
+                  .skip(skip)
+                  .exec() 
+}
+
+```
 
 ![](https://ka-perseus-images.s3.amazonaws.com/1d7e59bb1a3bfce307a001c2d4bbf763d0d11641.svg)
 
