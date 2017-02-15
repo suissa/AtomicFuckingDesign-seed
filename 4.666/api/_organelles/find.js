@@ -3,7 +3,7 @@ module.exports = (Organism) =>
     const query = {}
     const success = require('./ribossomos/success-200-json')(res)
     const error = require('./ribossomos/error-json')(res)
-    // console.log('\n\n\n\n\t\t ------> FIND <------', Organism)
+    
     return Organism.find(query)
                     .exec()
                     .then(success)

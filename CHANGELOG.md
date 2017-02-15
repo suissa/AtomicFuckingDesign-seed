@@ -54,7 +54,6 @@ const product3 = Reaction( product2 )
 ```
 
 
-
 > **E agora?**
 
 
@@ -70,11 +69,8 @@ Após essa introdução básica vamos entender como a Enzima trabalha:
  > encontradas numa célula determina o tipo de metabolismo que a célula efetua.
 
 
-Podemos fazer a seguinte analogia: **se as enzimas convetem X em Y podemos dizer 
-que ela é uma função.**
-
-
-
+Podemos fazer a seguinte analogia: **se as enzimas convertem X em Y podemos dizer 
+que ela é uma função (catalizadora).**
 
 
 ```js
@@ -84,17 +80,84 @@ const product = Enzyme.catalyze( Reaction( substrate ) )
 ```
 
 
+> A atividade enzimática pode depender da presença de determinadas moléculas, 
+> genericamente chamadas cofatores.
+
+
+Vamos lembrar que fizemos uma analogia com as rotas, sendo assim essa função precisa ter a seguinte
+assinatura dos parâmetros: `( req, res )`.
+
+
+```js
+
+module.exports = (Organism) => (req, res) => {
+
+  const cofactors = { req, res }
+
+}
+
+```
+
+
+Criamos a `const cofactors` com o `req` e `res` para que possamos injeta-los na Enzima.
+
+Após esse pequeno esclarecimento acerca da Enzima podemos partir para nossa função de rota:
+
+```js
+
+module.exports = (Organism) => 
+  (req, res) => {
+    const query = {}
+    const success = require('./ribossomos/success-200-json')(res)
+    const error = require('./ribossomos/error-json')(res)
+    
+    return Organism.find(query)
+                    .exec()
+                    .then(success)
+                    .catch(error)
+  }
+
+```
+
+
+Primeira coisa que faremos é separar a Enzima desse código.
+
+![](http://i.giphy.com/e7eBd417vuyFG.gif)
+
+
+> **CALMA!** 
+
+> Juro que será mais fácil que mijar sentado.
+
+
+```js
+// _enzymes/find.js
+module.exports = ( Organism, query ) => Organism.find( query ).exec()
+
+```
+
+
+> Viu? Indolor!
+
+Ainda precisamos conhecer mais um conceito para podermos refatorar nossa função da rota.
+
+> Determinadas substâncias, podem inibir a atividade de algumas enzimas, diminuindo-a ou eliminando-a totalmente; são os chamados inibidores enzimáticos.
+
+Agora sim chegou **A HORA**!
+
+Vamos refatorar a `_organelles/find.js` assim:
+
 ```js
 
 module.exports = (Organism) => 
   (req, res) => {
     const substrate = {}
-    const enzyme = __filename.split(`_organelles/`)[1].split('.js')[0]
-    const convertToProduct = require(`./ribossomos/success-200-json`)(res)
-    const inhibitor = require(`./ribossomos/error-json`)(res)
+    const enzyme = `find`
+    const convertToProduct = require(`./ribosomes/success-200-json`)(res)
+    const inhibitor = require(`./ribosomes/error-json`)(res)
     const catalyze = require(`./../_enzymes/${enzyme}`)
 
-    return catalyze( Organism, substrate )
+    return catalyze( Organism, substrate, cofactors )
                                 .then( convertToProduct )
                                 .catch( inhibitor )
   }
