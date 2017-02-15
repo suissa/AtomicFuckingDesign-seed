@@ -173,6 +173,22 @@ module.exports = (Organism) =>
 ```
 
 
+Para facilitar o entendimento pense no seguinte: o `substrate` é nossa antiga `query`, pois é com 
+esse valor que iremos gerar um `product` como resultado da reação.
+
+Como o sucesso dessa reação será nosso produto, chamei ele de `convertToProduct` porque será 
+utilizado no `then`, ficando: `then( convertToProduct )`. 
+
+**Caso você não entenda essas simples palavras em Inglês dar-te-ei essa dica já!**
+
+>**ESTUDE! Pois para um programador isso é obrigatório e não uma opção.**
+
+*Traduzindo: então converta para produto*
+
+Já sabemos que o *callback* de erro foi instanciado em `inhibitor`, sei que parece estranho 
+nomear **tão diferentemente** o sucesso do erro, porém para esse contexto achei que foi a 
+melhor solução, mas estou sempre aberto a sugestōes.
+
 
 ![](https://ka-perseus-images.s3.amazonaws.com/1d7e59bb1a3bfce307a001c2d4bbf763d0d11641.svg)
 
