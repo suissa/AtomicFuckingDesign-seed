@@ -3,6 +3,8 @@ module.exports = [
     method: 'get', action: 'find' },
   { path: '/',
     method: 'post', action: 'create' },
+  { path: '/first',
+    method: 'get', action: 'findOne' },
   { path: '/schema',
     method: 'get', action: 'getSchema' },
   { path: '/filter',
