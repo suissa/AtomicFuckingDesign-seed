@@ -122,9 +122,7 @@ module.exports = (Organism) =>
 
 Primeira coisa que faremos é separar a Enzima desse código.
 
-
-![](https://media.giphy.com/media/gpufDFw0sPBYY/giphy.gif)
-
+![](http://i.giphy.com/GmdFiZtdJtQty.gif)
 
 > **CALMA!** 
 
