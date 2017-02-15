@@ -139,13 +139,21 @@ module.exports = ( Organism, query ) => Organism.find( query ).exec()
 
 > Viu? Indolor!
 
+
 Ainda precisamos conhecer mais um conceito para podermos refatorar nossa função da rota.
 
-> Determinadas substâncias, podem inibir a atividade de algumas enzimas, diminuindo-a ou eliminando-a totalmente; são os chamados inibidores enzimáticos.
 
-Agora sim chegou **A HORA**!
+> Determinadas substâncias, podem inibir a atividade de algumas enzimas, diminuindo-a ou 
+> eliminando-a totalmente; são os chamados inibidores enzimáticos.
+
+
+Como não queremos inibir a execução da Enzima iremos fazer uma analogia desse conceito 
+com o *callback* de **erro** da *Promise* (`catch`). 
+
+> Agora sim chegou **A HORA**!
 
 Vamos refatorar a `_organelles/find.js` assim:
+
 
 ```js
 
