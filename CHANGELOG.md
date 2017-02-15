@@ -8,6 +8,12 @@ Vamos iniciar nossa jornada pela Biologia conhecendo para que serve a enzima.
 
 ![](https://ka-perseus-images.s3.amazonaws.com/7cfb71d72534e7c98b02fd1afc815a4100dccfcc.svg)
 
+> Enzimas são grupos de substâncias orgânicas de natureza normalmente proteica 
+> (existem também enzimas constituídas de RNA [1], as ribozimas), com atividade intra ou 
+> extracelular que têm funções catalisadoras, catalisando reações químicas que, sem a sua presença, 
+> dificilmente aconteceriam. 
+
+
 ```js
 
 module.exports = (Organism) => 
