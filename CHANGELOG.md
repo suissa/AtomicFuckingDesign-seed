@@ -12,6 +12,56 @@ Vamos iniciar nossa jornada pela Biologia conhecendo para que serve a enzima.
 > (existem também enzimas constituídas de RNA [1], as ribozimas), com atividade intra ou 
 > extracelular que têm funções catalisadoras, catalisando reações químicas que, sem a sua presença, 
 > dificilmente aconteceriam. 
+> 
+> Isso é conseguido através do abaixamento da energia de ativação necessária para que se dê uma 
+> reação química, resultando no aumento da velocidade da reação e possibilitando o metabolismo 
+> dos seres vivos. A capacidade catalítica das enzimas torna-as adequadas para aplicações industriais, 
+> como na indústria farmacêutica ou na alimentar.
+
+**Perceba como elas são importantes:**
+
+> Em sistemas vivos, a maioria das reações bioquímicas dá-se em vias metabólicas, que são 
+> sequências de reações em que o produto de uma reação é utilizado como reagente na reação 
+> seguinte. Diferentes enzimas catalisam diferentes passos de vias metabólicas, agindo de forma 
+> concertada de modo a não interromper o fluxo nessas vias.
+
+
+Quero que você atenha-se a essa frase: 
+
+> Diferentes enzimas catalisam diferentes passos de vias metabólicas, 
+> agindo de forma concertada de modo a não interromper o fluxo nessas vias.`
+
+
+Traduzindo isso para nós, programadores, podemos pensar nas enzimas como funções e 
+nas vias metabólicas como as rotas da nossa API.
+
+
+**Fazendo apenas um adendo,** analise essa frase: "o produto de uma reação é utilizado 
+como reagente na reação seguinte"
+
+> Te lembra algo?
+
+
+```js
+
+reactions.filter( getEnzymes ).map( catalyze ).reduce( toProduct )
+
+```
+
+
+
+> **E agora?**
+
+
+![](http://i2.kym-cdn.com/entries/icons/original/000/008/798/Too_Easy_2.png)
+ 
+
+Após essa introdução básica vamos entender como a Enzima trabalha:
+
+
+ > As enzimas convertem uma substância, chamada de substrato, noutra denominada produto, 
+ > e são extremamente específicas para a reação que catalisam. Isso significa que, em geral, uma 
+ > enzima catalisa um e só um tipo de reacção química. Consequentemente, o tipo de enzimas encontradas numa célula determina o tipo de metabolismo que a célula efetua.
 
 
 ```js
