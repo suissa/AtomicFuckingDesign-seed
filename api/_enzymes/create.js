@@ -1,1 +1,1 @@
-module.exports = (Organism, query) => Organism.create(query).exec()
+module.exports = ( Organism, data ) => Organism.create( data )
