@@ -1,10 +1,10 @@
 # Atomic FUCKING Design seed
 
-> Antes de tudo, indico esse livro para que vocë possa entender essa nomenclatura.
+> Antes de tudo, indico esses livros para que vocë possa entender essa nomenclatura.
 
-![uma breve história do tempo](https://i1.zst.com.br/images/uma-breve-historia-do-tempo-capa-comum-9788580576467-photo44272988-12-29-d.jpg)
+![uma breve história do tempo e o universo em uma casca de noz](http://i.imgur.com/7QGh6nM.png)
 
-> Brinks! Mas indico o livro fortemente porque ele é do **CARALHO**!
+> Brinks! Mas indico os livros fortemente porque são do **CARALHO**!
 
 Arquitetura modular e atômica criada no [Be MEAN]() para facilitar a vida dos programadores **vagabundos** como eu.
 
