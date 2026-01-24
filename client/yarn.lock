@@ -18,6 +18,13 @@ angular-aria@^1.6.1:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/angular-aria/-/angular-aria-1.6.1.tgz#0fcbf1152b4c26e8671daddea7443a1b983434b9"
 
+angular-chart.js@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/angular-chart.js/-/angular-chart.js-1.1.1.tgz#49f0e18d081762b6d4c9791e487aff2fbb30f5ae"
+  dependencies:
+    angular "1.x"
+    chart.js "2.3.x"
+
 angular-material@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/angular-material/-/angular-material-1.1.1.tgz#ed12f394ba71a9189d664115624f6787a7439af2"
@@ -26,13 +33,23 @@ angular-messages@^1.6.1:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/angular-messages/-/angular-messages-1.6.1.tgz#da9546d94b55eb152daaa9b9147059f7dec81435"
 
-angular-sanitize@^1.6.1:
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/angular-sanitize/-/angular-sanitize-1.6.1.tgz#cacffec3199ed66297afbb1ef366ec66616b3b3f"
+angular-sanitize@^1.8.3:
+  version "1.8.3"
+  resolved "https://registry.yarnpkg.com/angular-sanitize/-/angular-sanitize-1.8.3.tgz#51378e990e78c7ecc1fb31cd68655aff690a3bf1"
+
+angular-socket-io@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/angular-socket-io/-/angular-socket-io-0.7.0.tgz#78a8d60aa57194a0330bc3137d4da108698b97cf"
 
 angular-touch@^1.6.1:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/angular-touch/-/angular-touch-1.6.1.tgz#cdd6fcaea6b22f8203b89084d5950eb7d927384b"
+
+angular-ui-grid@^4.0.2:
+  version "4.12.7"
+  resolved "https://registry.yarnpkg.com/angular-ui-grid/-/angular-ui-grid-4.12.7.tgz#1fa8a30a7bc9c4c78e27157d88adf5349c1664ef"
+  dependencies:
+    angular ">=1.4.0"
 
 angular-ui-router@^0.3.2:
   version "0.3.2"
@@ -40,9 +57,9 @@ angular-ui-router@^0.3.2:
   dependencies:
     angular "^1.0.8"
 
-angular@^1.0.8, angular@^1.6.1:
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/angular/-/angular-1.6.1.tgz#a7b6d763a74c157325692619e97257e69d9b6a27"
+angular@1.x, angular@>=1.4.0, angular@^1.0.8, angular@^1.8.3:
+  version "1.8.3"
+  resolved "https://registry.yarnpkg.com/angular/-/angular-1.8.3.tgz#851ad75d5163c105a7e329555ef70c90aa706894"
 
 ast-transform@0.0.0:
   version "0.0.0"
@@ -104,13 +121,47 @@ buffer-shims@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/buffer-shims/-/buffer-shims-1.0.0.tgz#9978ce317388c649ad8793028c3477ef044a8b51"
 
+chart.js@2.3.x:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/chart.js/-/chart.js-2.3.0.tgz#40460e48e2c417c05fc3325cd84f7b000dc7d7d6"
+  dependencies:
+    chartjs-color "^2.0.0"
+    moment "^2.10.6"
+
+chartjs-color-string@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/chartjs-color-string/-/chartjs-color-string-0.6.0.tgz#1df096621c0e70720a64f4135ea171d051402f71"
+  dependencies:
+    color-name "^1.0.0"
+
+chartjs-color@^2.0.0:
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/chartjs-color/-/chartjs-color-2.4.1.tgz#6118bba202fe1ea79dd7f7c0f9da93467296c3b0"
+  dependencies:
+    chartjs-color-string "^0.6.0"
+    color-convert "^1.9.3"
+
 clone@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/clone/-/clone-1.0.2.tgz#260b7a99ebb1edfe247538175f783243cb19d149"
 
+color-convert@^1.9.3:
+  version "1.9.3"
+  resolved "https://registry.yarnpkg.com/color-convert/-/color-convert-1.9.3.tgz#bb71850690e1f136567de629d2d5471deda4c1e8"
+  dependencies:
+    color-name "1.1.3"
+
+color-name@1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/color-name/-/color-name-1.1.3.tgz#a7d0558bd89c42f795dd42328f740831ca53bc25"
+
+color-name@^1.0.0:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/color-name/-/color-name-1.1.4.tgz#c2a09a87acbde69543de6f63fa3995c826c536a2"
+
 concat-stream@~1.4.5:
-  version "1.4.10"
-  resolved "https://registry.yarnpkg.com/concat-stream/-/concat-stream-1.4.10.tgz#acc3bbf5602cb8cc980c6ac840fa7d8603e3ef36"
+  version "1.4.11"
+  resolved "https://registry.yarnpkg.com/concat-stream/-/concat-stream-1.4.11.tgz#1dc9f666f2621da9c618b1e7f8f3b2ff70b5f76f"
   dependencies:
     inherits "~2.0.1"
     readable-stream "~1.1.9"
@@ -251,8 +302,8 @@ linebreak@~0.1.0:
     unicode-trie "^0.1.1"
 
 lodash@^4.17.3:
-  version "4.17.4"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
+  version "4.17.23"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.23.tgz#f113b0378386103be4f6893388c73d0bde7f2c5a"
 
 minimist@0.0.8:
   version "0.0.8"
@@ -262,9 +313,13 @@ minimist@^1.1.3:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.0.tgz#a35008b20f41383eec1fb914f4cd5df79a264284"
 
+moment@^2.10.6:
+  version "2.30.1"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.30.1.tgz#f8c91c07b7a786e30c59926df530b4eac96974ae"
+
 object-inspect@~0.4.0:
   version "0.4.0"
-  resolved "http://registry.npmjs.org/object-inspect/-/object-inspect-0.4.0.tgz#f5157c116c1455b243b06ee97703392c5ad89fec"
+  resolved "https://registry.npmjs.org/object-inspect/-/object-inspect-0.4.0.tgz#f5157c116c1455b243b06ee97703392c5ad89fec"
 
 object-keys@^1.0.6:
   version "1.0.11"

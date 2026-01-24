@@ -68,13 +68,13 @@
     }
   ],
   "dependencies": {
-    "debug": "2.3.3",
-    "engine.io": "1.8.2",
+    "debug": "2.6.9",
+    "engine.io": "3.6.1",
     "has-binary": "0.1.7",
     "object-assign": "4.1.0",
     "socket.io-adapter": "0.5.0",
     "socket.io-client": "1.7.2",
-    "socket.io-parser": "2.3.1"
+    "socket.io-parser": "3.3.4"
   },
   "description": "node.js realtime framework server",
   "devDependencies": {
